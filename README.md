@@ -1,9 +1,11 @@
-COSBench Automation Kit (for Openstack swift)
-=============================================
+COSBench Automation Kit
+=======================
 
 This is one automation kit for Openstack swift performance measurement with COSBench, it leverages bash and perl scripts 
 to help automate the one performance measure procedure, including setup/teardown storage cluster, kicking off load generation, 
 processing performance statistics. 
+
+So far some parameters or actions are swift specific, tweaks are expected to adapt to your setup. 
 
 
 Preliminary
@@ -25,7 +27,10 @@ Installation and Usage
 	4.2: $REMOTE_SERV and $REMOTE_DIR for where the data will be copied to
 5. summary_v1.0.xlsm: Excel spreadsheet for post-processing
 6. Modify all.sh: change this scripts for multiple run
-Details:
+
+
+Scripts
+-------
 	run_sysstat.sh : to collect sar/iostat/vmstat data in the nodes in NodeList 
 	stop_sysstat.sh : to stop collecting sar/iostat/vmstat data in the nodes in NodeList
 	process_sysstat.sh post-processing the sar/iostat/vmstat data
@@ -34,7 +39,9 @@ Details:
 	verify.sh : to check whether the nodes in NodeList can be pinged, sshed, execute vmstat etc
 	clean_sysstat.sh: clean the log and csv file on remote hosts
 
-recommend calling step:
+
+recommend calling step
+----------------------
 1. stop_sysstat.sh
 2. clean_sysstat.sh
 3. start_sysstat.sh
@@ -43,9 +50,9 @@ recommend calling step:
 6. process_sysstat.sh
 7. remote_copy.sh
 
-------------------------------------------
-Troubleshooting:
-------------------------------------------
+
+Troubleshooting
+---------------
 1. Failed to collect data in localhost
 A: Also need to enable no-password ssh/scp on localhost
 
@@ -53,4 +60,4 @@ A: Also need to enable no-password ssh/scp on localhost
 A: need to add "-f" option to SSH command
 
 
-
+== END
